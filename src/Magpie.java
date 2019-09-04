@@ -134,7 +134,7 @@ public class Magpie
 		}
                 else if (whichResponse == 9)
 		{
-			response = "I'd rather talk to a trash can than talk to you..";
+			response = "I'd rather talk to a trash can than talk to you.";
 		}
 		
 		return response;
