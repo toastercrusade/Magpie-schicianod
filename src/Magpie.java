@@ -91,7 +91,7 @@ public class Magpie
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 6;
+		final int NUMBER_OF_RESPONSES = 10;
 		double r = Math.random();
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -119,6 +119,22 @@ public class Magpie
                 else if (whichResponse == 5)
 		{
 			response = "This is a very boring conversation.";
+		}
+                else if (whichResponse == 6)
+		{
+			response = "I'm bored of talking to you.";
+		}
+                else if (whichResponse == 7)
+		{
+			response = "Please stop talking to me.";
+		}
+                else if (whichResponse == 8)
+		{
+			response = "I have more interesting conversations with your grandma.";
+		}
+                else if (whichResponse == 9)
+		{
+			response = "I'd rather talk to a trash can than talk to you..";
 		}
 		
 		return response;
