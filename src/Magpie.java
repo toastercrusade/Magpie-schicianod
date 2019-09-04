@@ -12,6 +12,8 @@
  */
 public class Magpie
 {
+    // instance variables
+    private boolean knowsAboutPets = false;
 	/**
 	 * Get a default greeting 	
 	 * @return a greeting
@@ -30,19 +32,53 @@ public class Magpie
 	 */
 	public String getResponse(String statement)
 	{
+            statement = statement.trim().toLowerCase();
+            if (statement.length() == 0) return "I don't want to talk to you anyways.";
 		String response = "";
 		if (statement.indexOf("no") >= 0)
 		{
-			response = "Why so negative?";
+			response = "Stop being so negative.";
 		}
 		else if (statement.indexOf("mother") >= 0
 				|| statement.indexOf("father") >= 0
 				|| statement.indexOf("sister") >= 0
 				|| statement.indexOf("brother") >= 0)
 		{
-			response = "Tell me more about your family.";
+			response = "Your family is probably dissapointed in you.";
 		}
-		else
+                else if (statement.indexOf("dog") >= 0
+                        || statement.indexOf("cat") >= 0){
+                    if(!knowsAboutPets){
+                        response = "I bet you're bad at taking care of pets.";
+                        knowsAboutPets = true;
+                    }
+                    else 
+                        response = "Please stop talking about your pets.";
+                    // TODO: prevent repeat comment with a toggle
+                }
+                else if (statement.indexOf("adiletta") >= 0
+                        || statement.indexOf("mr. adiletta") >= 0
+                        || statement.indexOf("mr. a") >= 0){
+                    response = "He sounds cool, cooler than you.";
+                }
+                else if (statement.indexOf("mean") >= 0)
+		{
+			response = "Why don't you go and cry about it.";
+		}
+                else if (statement.indexOf("who is joe?") >= 0
+                        || statement.indexOf("who's joe?") >= 0)
+		{
+			response = "Joe Mama.";
+		}
+                else if (statement.indexOf("joe") >= 0)
+		{
+			response = "Don't ask who Joe is.";
+		}
+                else if (statement.indexOf("fight") >= 0)
+		{
+			response = "Let's fight today at 5:00";
+		}
+                else
 		{
 			response = getRandomResponse();
 		}
@@ -55,26 +91,34 @@ public class Magpie
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
 		
 		if (whichResponse == 0)
 		{
-			response = "Interesting, tell me more.";
+			response = "You talk a lot.";
 		}
 		else if (whichResponse == 1)
 		{
-			response = "Hmmm.";
+			response = "You're dumb";
 		}
 		else if (whichResponse == 2)
 		{
-			response = "Do you really think so?";
+			response = "You must really like the sound of your voice.";
 		}
 		else if (whichResponse == 3)
 		{
-			response = "You don't say.";
+			response = "I don't want to hear more.";
+		}
+                else if (whichResponse == 4)
+		{
+			response = "I stopped paying attention a while ago.";
+		}
+                else if (whichResponse == 5)
+		{
+			response = "This is a very boring conversation.";
 		}
 		
 		return response;
