@@ -28,7 +28,7 @@ public class StringExplorer {
 
         // Demonstrate the length METHOD
         int l = sample.length();
-        System.out.println("sample.lengyth() = " + l);
+        System.out.println("sample.length() = " + l);
 
         // substrings
         String sub1 = sample.substring(5);
